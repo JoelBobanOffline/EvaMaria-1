@@ -9,11 +9,13 @@ from getpass import getuser
 from os import geteuid
 from pyrogram import Client, filters
 from EvaMaria.darkprince import telegrapher
+from EvaMaria.darkprince.custfilters import (
+    admin_fliter
 
 
 @Client.on_message(
     filters.command(["eval"], prefixes="!")
-    & filters.user([5029694040])
+    & admin_filter,
     & filters.group,
     group=8
 )
